@@ -1,0 +1,238 @@
+/**
+ * SCSS - _wpplugin-admin-ui.scss - Holds general Admin CSS that applies plugin-wide, including CSS for the Admin containers, the advertisment areas, and the dashboard icon
+ *
+ * @author   Jake Evans
+ * @category SCSS
+ * @package  Includes/Assets/CSS
+ * @version  6.0.0
+ */
+
+
+/*
+ * BEGIN ADMIN CONTAINER BONES, ADVERTISMENT, LICENSE UI ELEMENTS, AND DASHBOARD ICON CSS
+ */
+.wpplugin-admin-top-container, .wpplugin-admin-advert-container{
+    @extend %wpplugintoplevel-admin-containers;
+}
+
+.wpplugin-admin-top-title-icon{
+    @extend %wpplugintoplevel-admin-top-title-icon;
+}
+
+.wpplugin-admin-top-title{
+    @extend %wpplugintoplevel-admin-top-title;
+}
+
+.wpplugin-admin-advert-visit-me-title{
+    @extend %wpplugintoplevel-admin-advert-visit-me-title;
+}
+
+.wpplugin-admin-advert-site-div{
+    @extend %wpplugintoplevel-admin-advert-site-div;
+}
+
+.wpplugin-admin-advert-site-div img{
+    @extend %wpplugintoplevel-margin-auto-centered;
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#wpplugin-admin-advert-email-me{
+    @extend %wpplugintoplevel-margin-auto-centered;
+    text-align: center;
+    width: 70%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#wpplugin-admin-advert-flex-container{
+    display:flex;
+}
+
+#wpplugin-facebook-link-div, #wpplugin-admin-advert-money-container{
+    text-align:center;
+}
+
+#wpplugin-admin-advert-money-container form{
+    display: inline-block;
+}
+
+#wpplugin-patreon-img{
+    width: 100px;
+}
+
+#wpplugin-patreon-link{
+    display: inline-block;
+    margin: 10px;
+}
+
+.wpplugin-admin-advert-visit-me-link{
+    text-decoration:none;
+    font-size: 20px;
+    margin-bottom: 30px;
+    display: block;
+}
+
+.wpplugintoplevel_page_WPPlugin-Options .dashicons-before img {
+    width: 30px !important;
+    margin-right: 2px !important;
+    margin-left: 2px !important;
+}
+
+.wpplugin-my-notice-dismiss-forever{
+    @extend %wpplugintoplevel-default-buttons-style;
+}
+
+.wpplugin-my-notice-dismiss-forever:hover {
+    @extend %wpplugintoplevel-default-buttons-style-hover;
+}
+
+.wpplugin-extension-genreric-key-plugins-page-input{
+    margin-right:5px;
+}
+
+.wpplugin-extension-genreric-key-dashboard-input{
+    min-width:300px;
+}
+
+.wpplugin-extension-genreric-key-dashboard-form{
+    padding-bottom:10px;
+}
+
+/*
+ * BEGIN ADMIN CONTAINER BONES, ADVERTISMENT, LICENSE UI ELEMENTS, AND DASHBOARD ICON CSS
+ */
+
+
+/*
+ * BEGIN COMMON ELEMENTS INSIDE OF TOP ADMIN CONTAINERS
+ */
+
+ .wpplugin-color-orange-italic{
+    @extend  %wpplugintoplevel-color-orange-italic;
+ }
+
+.wpplugin-tab-intro-para{
+    @extend %wpplugintoplevel-tab-intro-para;
+}
+
+.wpplugin-tab-intro-para-left{
+    @extend %wpplugintoplevel-tab-intro-para;
+    text-align: left;
+}
+
+.wpplugin-icon-image-question, .wpplugin-icon-image-question-with-link{
+   @extend %wpplugintoplevel-icon-image-question;
+}
+
+.wpplugin-icon-image-question-with-link{
+    right: 3px;
+}
+
+.wpplugin-spinner{
+    @extend %wpplugintoplevel-spinner;
+}
+
+.wpplugin-response-success-fail-container{
+    @extend %wpplugintoplevel-response-success-fail-container;
+}
+
+.wpplugin-question-icon-label{
+    @extend %wpplugintoplevel-question-icon-label;
+}
+
+.wpplugin-addition-div-img{
+    width:22px;
+}
+
+.wpplugin-addition-div-img{
+   @extend %wpplugintoplevel-addition-div-img;
+}
+
+.wpplugin-addition-div-p{
+    @extend %wpplugintoplevel-addition-div-p;
+}
+
+#wpplugin-smile-icon-1{
+    @extend %wpplugintoplevel-margin-auto-centered;
+    @extend %wpplugintoplevel-smile-icon;
+}
+
+#wpplugin-success-span{
+    font-style: italic;
+    color: $primary-color;
+    font-size: 16px;
+}
+
+.wpplugin-show-book-colorbox {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.wpplugin-bold-shortcode{
+    @extend %wpplugintoplevel-bold-shortcode;
+}
+
+.wpplugin-bold-shortcode-orange{
+    @extend %wpplugintoplevel-bold-shortcode-orange;
+}
+
+.wpplugin-bold-li-heading{
+   @extend %wpplugintoplevel-bold-li-heading;
+}
+
+#wpplugin-dynamic-input-library{
+    min-width: 300px;
+    margin-bottom:50px;
+}
+
+#wpplugin-dynamic-shortcode-button{
+    margin-bottom:50px;
+}
+
+#wpplugin-dynamic-shortcode-button, .wpplugintoplevel_delete_custom_lib{
+    width: 200px;
+}
+
+.wpplugin-response-success-fail-button{
+   @extend %wpplugintoplevel-response-success-fail-button;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#wpplugin-cache-clear-wrapper{
+    width: 70%;
+    margin: 25px;
+    margin-top: 0px;
+    position: relative;
+    text-align: center;
+    top: 5px;
+}
+
+
+#wpplugin-cache-clear-wrapper img{
+    left: 0px;
+    top: 1px;
+}
+
+#wpplugin-spinner-cache{
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+    top: 10px;
+    border-left: 1px solid #F1F1F1;
+    border-right: 1px solid #F1F1F1;
+    border-bottom: 1px solid #F1F1F1;
+}
+
+
+
+/*
+ * END COMMON ELEMENTS INSIDE OF TOP ADMIN CONTAINERS
+ */
+
+
+
