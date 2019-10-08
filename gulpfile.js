@@ -21,8 +21,8 @@ var gulp   = require( 'gulp' ),
 	zip    = require( 'gulp-zip' ),
 	del    = require( 'del' );
 
-var sassFrontendSource        = [ 'dev/scss/wpplugintoplevelmain-frontend.scss' ];
-var sassBackendSource         = [ 'dev/scss/wpplugintoplevelmain-admin.scss' ];
+var sassFrontendSource        = [ 'dev/scss/wpplugintoplevel-main-frontend.scss' ];
+var sassBackendSource         = [ 'dev/scss/wpplugintoplevel-main-admin.scss' ];
 var jsBackendSource           = [ 'dev/js/backend/*.js' ];
 var jsFrontendSource          = [ 'dev/js/frontend/*.js' ];
 var watcherMainFrontEndScss = gulp.watch( sassFrontendSource );

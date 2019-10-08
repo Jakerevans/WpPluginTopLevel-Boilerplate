@@ -20,6 +20,8 @@
 /*
  * SETUP NOTES:
  *
+ * Rename root plugin folder to an all-lowercase version of wpplugintoplevel
+ *
  * Change all filename instances from wpplugintoplevel to desired plugin name
  *
  * Modify Plugin Name

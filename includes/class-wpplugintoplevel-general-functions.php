@@ -132,7 +132,7 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 		 */
 		public function wpplugintoplevel_admin_style() {
 
-			wp_register_style( 'wpplugintoplevel_adminui', WPPLUGINTOPLEVEL_CSS_URL . 'wpplugintoplevelmain-admin.css', null, WPPLUGINTOPLEVEL_VERSION_NUM );
+			wp_register_style( 'wpplugintoplevel_adminui', WPPLUGINTOPLEVEL_CSS_URL . 'wpplugintoplevel-main-admin.css', null, WPPLUGINTOPLEVEL_VERSION_NUM );
 			wp_enqueue_style( 'wpplugintoplevel_adminui' );
 
 		}
@@ -142,7 +142,7 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 		 */
 		public function wpplugintoplevel_frontend_style() {
 
-			wp_register_style( 'wpplugintoplevel_frontendui', WPPLUGINTOPLEVEL_CSS_URL . 'wpplugintoplevelmain-frontend.css', null, WPPLUGINTOPLEVEL_VERSION_NUM );
+			wp_register_style( 'wpplugintoplevel_frontendui', WPPLUGINTOPLEVEL_CSS_URL . 'wpplugintoplevel-main-frontend.css', null, WPPLUGINTOPLEVEL_VERSION_NUM );
 			wp_enqueue_style( 'wpplugintoplevel_frontendui' );
 
 		}
