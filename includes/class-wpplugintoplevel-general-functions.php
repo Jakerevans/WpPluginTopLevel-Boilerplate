@@ -224,5 +224,17 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 			}
 		}
 
+		/**
+		 *  The shortcode for displaying the login form / register forms / dashboard.
+		 */
+		public function wpplugintoplevel_login_shortcode_function() {
+
+			ob_start();
+			include_once WPPLUGINTOPLEVEL_CLASS_DIR . 'class-wpplugintoplevel-dashboard-ui.php';
+			$front_end_ui = new WPPluginToplevel_Dashboard_UI();
+			return ob_get_clean();
+
+		}
+
 	}
 endif;

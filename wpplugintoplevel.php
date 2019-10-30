@@ -203,6 +203,9 @@ global $wpdb;
 	// Creates tables upon activation.
 	register_activation_hook( __FILE__, array( $toplevel_general_functions, 'wpplugintoplevel_create_tables' ) );
 
+	// Adding the front-end login / dashboard shortcode.
+	add_shortcode( 'wpplugintoplevel_login_shortcode', array( $toplevel_general_functions, 'wpplugintoplevel_login_shortcode_function' ) );
+
 
 
 /* END OF FUNCTIONS FOUND IN CLASS-WPPLUGIN-GENERAL-FUNCTIONS.PHP THAT APPLY PLUGIN-WIDE */
