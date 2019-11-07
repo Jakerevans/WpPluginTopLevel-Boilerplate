@@ -31,7 +31,7 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 		 *  @param array $submenu_array - The array that contains submenu entries to add to.
 		 */
 		public function wpplugintoplevel_jre_my_admin_menu() {
-			add_menu_page( 'Bell  WPPluginToplevel', 'WPPluginToplevel', 'manage_options', 'WPPluginToplevel-Options', array( $this, 'wpplugintoplevel_jre_admin_page_function' ), WPPLUGINTOPLEVEL_ROOT_IMG_URL . 'belllogo.svg', 6 );
+			add_menu_page( 'Bell  WPPluginToplevel', 'WPPluginToplevel', 'manage_options', 'WPPluginToplevel-Options', array( $this, 'wpplugintoplevel_jre_admin_page_function' ), WPPLUGINTOPLEVEL_ROOT_IMG_URL . 'belllogonocanvas.png', 6 );
 
 			$submenu_array = array(
 				'Settings',
