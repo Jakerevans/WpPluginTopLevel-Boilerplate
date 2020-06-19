@@ -40,8 +40,10 @@
  * wpplugin
  * $toplevel
  * TOPLEVEL
+ * wpplugintoplevel-extension
  * repw with something also random - db column that holds license.
  *
+ * Rename and/or delete the Node_Modules folder to prevent that Sass error message when running Gulp
  *
  * Change the EDD_SL_ITEM_ID_WPPLUGINTOPLEVEL contant below.
  *

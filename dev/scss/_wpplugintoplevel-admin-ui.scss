@@ -7,6 +7,12 @@
  * @version  6.0.0
  */
 
+CSS TO PREVENT THE DELETION OF PLUGINS FROM THE ADMIN PLUGINS PAGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+*/
+
+tr[data-slug=bell-website-database]{
+    pointer-events: none;
+} 
 
 /*
  * BEGIN ADMIN CONTAINER BONES, ADVERTISMENT, LICENSE UI ELEMENTS, AND DASHBOARD ICON CSS
