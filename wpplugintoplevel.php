@@ -30,7 +30,7 @@
  *
  * Modify Version Number in Block comment and in Constant
  *
- * Find & Replace these 3 strings:
+ * Find & Replace these strings:
  * wpplugintoplevel
  * wppluginToplevel
  * WPPlugintoplevel
@@ -41,6 +41,7 @@
  * $toplevel
  * TOPLEVEL
  * wpplugintoplevel-extension
+ * SITETHING - rename to whatever we're 'saving' or recording to the database. Is this for cars, vendors, contacts, etc. really to be used for the editing of whatever this database is concenred with in the 'class-settings-two-form.php' file. Replace it with something lowercase.
  * repw with something also random - db column that holds license.
  *
  * Rename and/or delete the Node_Modules folder to prevent that Sass error message when running Gulp
