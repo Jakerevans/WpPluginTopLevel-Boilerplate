@@ -293,3 +293,72 @@ tr[data-slug=bell-website-database]{
  /*
  * END CSS FOR COMMON FORM FILL
  */
+
+
+/*
+ * BEGIN CSS FOR ADMIN EDITING PAGE
+ */
+
+.wpplugintoplevel-form-section-fields-indiv-wrapper{
+    display:inline-block;
+}
+
+.wpplugintoplevel-form-section-fields-indiv-wrapper label{
+    display:block;
+    text-align: center;
+}
+
+.wpplugintoplevel-form-section-fields-wrapper{
+    text-align:center;
+    margin: 20px;
+}
+
+.wpplugintoplevel-display-search-ui-search-buttons-container{
+    text-align:center;
+}
+
+.wpplugintoplevel-siteinfo-update-container-accordion-heading{
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+.wpplugintoplevel-display-search-ui-top-container{
+    margin-bottom:20px;
+}
+
+.wpplugintoplevel-all-edit-siteinfo .bellwebsites-form-section-wrapper{
+    margin-top:0px;
+}
+
+.wpplugintoplevel-all-edit-siteinfo .wpplugintoplevel-siteinfo-update-container-accordion-heading{
+    margin-bottom:7px;
+}
+
+.wpplugintoplevel-all-edit-siteinfo .wpplugintoplevel-siteinfo-update-info-container{
+    background-color: #f6f6f6;
+    border: solid 1px #cecece;
+    margin-bottom: 50px;
+}
+
+.wpplugintoplevel-all-edit-siteinfo .bellwebsites-form-section-wrapper{
+    border-left: 0;
+    border-right: 0;
+    margin-bottom: -1px;
+}
+
+.wpplugintoplevel-all-edit-siteinfo .bellwebsites-displayentries-response-div-wrapper{
+    text-align: center;
+}
+
+.bellwebsites-form-section-fields-input-button-editwebsite{
+    top: 20px;
+    position: relative;
+}
+
+
+
+
+ /*
+ * END CSS FOR ADMIN EDITING PAGE
+ */

@@ -318,7 +318,7 @@ if ( ! class_exists( 'WPPlugin_settings2_Form', false ) ) :
 
 			// Now start building the actual HTML for the search area.
 			$string1 = '<div class="wpplugintoplevel-display-search-ui-top-container">
-							<span class="wpplugintoplevel-tab-intro-para">Select your search options below</span>
+							<p class="wpplugintoplevel-tab-intro-para">Select your search options below</p>
 							<div class="wpplugintoplevel-display-search-ui-inner-container">
 								<div class="wpplugintoplevel-display-search-ui-search-fields-container">
 									<div class="wpplugintoplevel-form-section-fields-wrapper">
@@ -451,7 +451,7 @@ if ( ! class_exists( 'WPPlugin_settings2_Form', false ) ) :
 						<button class="accordion wpplugintoplevel-SITETHING-update-container-accordion-heading">
 							' .  $value->SITETHINGname  . '
 						</button>
-						<div class="wpplugintoplevel-SITETHING-update-info-container" style="display: none;">
+						<div class="wpplugintoplevel-SITETHING-update-info-container" style="display: none;" data-open="false">
 						</div>						
 				</div>';
 			}
