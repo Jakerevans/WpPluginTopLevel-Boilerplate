@@ -37,6 +37,7 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 				'Settings',
 				'Submenu Page1',
 				'Submenu Page2',
+				'Submenu Page3',
 			);
 
 			// Filter to allow the addition of a new subpage.

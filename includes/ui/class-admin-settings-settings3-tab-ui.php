@@ -1,6 +1,6 @@
 <?php
 /**
- * WPPlugin_Settings_Settings1_Tab Tab - class-admin-settings-libraries-tab-ui.php.
+ * WPPlugin_Settings_Settings3_Tab Tab - class-admin-settings-libraries-tab-ui.php.
  *
  * @author   Jake Evans
  * @category Admin
@@ -12,23 +12,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'WPPlugin_Settings_Settings1_Tab', false ) ) :
+if ( ! class_exists( 'WPPlugin_Settings_Settings3_Tab', false ) ) :
 
 	/**
-	 * WPPlugin_Settings_Settings1_Tab Class.
+	 * WPPlugin_Settings_Settings3_Tab Class.
 	 */
-	class WPPlugin_Settings_Settings1_Tab {
+	class WPPlugin_Settings_Settings3_Tab {
 
 		/**
 		 * Class Constructor
 		 */
 		public function __construct() {
 			require_once WPPLUGINTOPLEVEL_CLASS_DIR . 'class-admin-ui-template.php';
-			require_once WPPLUGINTOPLEVEL_CLASS_DIR . 'class-submenu-one-tab-two-form.php';
+			require_once WPPLUGINTOPLEVEL_CLASS_DIR . 'class-settings-three-form.php';
 
 			// Instantiate the class.
 			$this->template = new WPPlugin_Admin_UI_Template();
-			$this->form     = new WPPlugin_Settings1_Form();
+			$this->form     = new WPPlugin_Settings3_Form();
 			$this->output_open_admin_container();
 			$this->output_tab_content();
 			$this->output_close_admin_container();
@@ -39,7 +39,7 @@ if ( ! class_exists( 'WPPlugin_Settings_Settings1_Tab', false ) ) :
 		 * Opens the admin container for the tab
 		 */
 		private function output_open_admin_container() {
-			$title    = 'Submenu 1 Tab 2';
+			$title    = 'Settings 3';
 			$icon_url = WPPLUGINTOPLEVEL_ROOT_IMG_URL . 'settings.svg';
 
 			echo $this->template->output_open_admin_container( $title, $icon_url );
@@ -50,7 +50,7 @@ if ( ! class_exists( 'WPPlugin_Settings_Settings1_Tab', false ) ) :
 		 * Outputs actual tab contents
 		 */
 		private function output_tab_content() {
-			echo $this->form->output_settings1_form();
+			echo $this->form->output_settings3_form();
 		}
 
 		/**
@@ -72,4 +72,4 @@ if ( ! class_exists( 'WPPlugin_Settings_Settings1_Tab', false ) ) :
 endif;
 
 // Instantiate the class.
-$cm = new WPPlugin_Settings_Settings1_Tab();
+$cm = new WPPlugin_Settings_Settings3_Tab();

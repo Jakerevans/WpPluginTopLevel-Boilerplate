@@ -39,7 +39,7 @@ if ( ! class_exists( 'WPPlugin_Settings1_Form', false ) ) :
 			$currentwpuser = wp_get_current_user();
 
 			$string1 = '<div id="wpplugin-display-options-container">
-							<p class="wpplugin-tab-intro-para">This is some intro text for The first tab of the 2nd Submenu Page</p>
+							<p class="wpplugin-tab-intro-para">This is some intro text for the first tab of the 2nd Submenu Page</p>
 						</div>';
 
 

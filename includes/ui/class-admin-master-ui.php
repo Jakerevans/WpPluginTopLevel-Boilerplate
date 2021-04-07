@@ -56,6 +56,9 @@ class WPPlugin_Admin_Menu {
                 break;  
              case 'WPPluginToplevel-Options-submenu-page2':
                 $this->setup_submenupage2_ui();
+                break;
+             case 'WPPluginToplevel-Options-submenu-page3':
+                $this->setup_submenupage3_ui();
                 break;         
             default:
                 // Controls UI for submenu pages added through extensions
@@ -69,6 +72,7 @@ class WPPlugin_Admin_Menu {
         $this->tabs = array(
             'settings1'   => __("Settings 1", 'wpplugin'),
             'settings2'  => __("Settings 2", 'wpplugin'),
+            'settings3'  => __("Settings 3", 'wpplugin'),
         );
 
         if(has_filter('wpplugintoplevel_add_tab_settings')) {
@@ -111,6 +115,25 @@ class WPPlugin_Admin_Menu {
 
         if(has_filter('wpplugintoplevel_add_tab_submenupage2')) {
             $this->tabs = apply_filters('wpplugintoplevel_add_tab_submenupage2', $this->tabs);
+        }
+
+        if($this->activetab == 'default'){
+            $this->activetab = null;
+        }
+
+        $this->output_tabs_ui();
+        $this->output_indiv_tab();
+    }
+
+    // Sets up tabs for the 'Books' page
+    private function setup_submenupage3_ui() {
+        $this->tabs = array(
+            'submenupage3tab1'   => __("Submenu3 Tab 1", 'wpplugin'),
+            'submenupage3tab2'  => __("Submenu3 Tab 2", 'wpplugin'),
+        );
+
+        if(has_filter('wpplugintoplevel_add_tab_submenupage3')) {
+            $this->tabs = apply_filters('wpplugintoplevel_add_tab_submenupage3', $this->tabs);
         }
 
         if($this->activetab == 'default'){

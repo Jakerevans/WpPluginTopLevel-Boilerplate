@@ -24,7 +24,7 @@ if ( ! class_exists( 'WPPlugin_Settings_Settings1_Tab', false ) ) :
 		 */
 		public function __construct() {
 			require_once WPPLUGINTOPLEVEL_CLASS_DIR . 'class-admin-ui-template.php';
-			require_once WPPLUGINTOPLEVEL_CLASS_DIR . 'class-submenu-one-tab-two-form.php';
+			require_once WPPLUGINTOPLEVEL_CLASS_DIR . 'class-submenu-three-tab-one-form.php';
 
 			// Instantiate the class.
 			$this->template = new WPPlugin_Admin_UI_Template();
@@ -39,7 +39,7 @@ if ( ! class_exists( 'WPPlugin_Settings_Settings1_Tab', false ) ) :
 		 * Opens the admin container for the tab
 		 */
 		private function output_open_admin_container() {
-			$title    = 'Submenu 1 Tab 2';
+			$title    = 'Submenu 3 Tab 1';
 			$icon_url = WPPLUGINTOPLEVEL_ROOT_IMG_URL . 'settings.svg';
 
 			echo $this->template->output_open_admin_container( $title, $icon_url );

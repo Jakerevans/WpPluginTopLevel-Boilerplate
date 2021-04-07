@@ -39,7 +39,7 @@ if ( ! class_exists( 'WPPlugin_Settings_Settings1_Tab', false ) ) :
 		 * Opens the admin container for the tab
 		 */
 		private function output_open_admin_container() {
-			$title    = 'Submenu 2 Tab 1';
+			$title    = 'Submenu 2 Tab 2';
 			$icon_url = WPPLUGINTOPLEVEL_ROOT_IMG_URL . 'settings.svg';
 
 			echo $this->template->output_open_admin_container( $title, $icon_url );
