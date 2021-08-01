@@ -22,8 +22,8 @@
 * This boilerplate plugin comes with these features out-of-the-box:
 * 1. Ability to create a new generic User. Bascia info such as name and contact info. 
 * 	- The 'uniqueness' is set by the email address - it's impossible to add a user that has the same email as another user.
-*
-*
+* 	- There is an ability to add a new User from the Admin Dashboard
+* 	- 
 *
 *
 *
@@ -199,6 +199,8 @@ global $wpdb;
 	// For the admin pages.
 	add_action( 'admin_menu', array( $toplevel_general_functions, 'wpplugintoplevel_jre_my_admin_menu' ) );
 
+	// Adding Ajax library.
+	add_action( 'wp_head', array( $toplevel_general_functions, 'wpplugintoplevel_jre_prem_add_ajax_library' ) );
 
 	// Adding the function that will take our WPPLUGINTOPLEVEL_NONCES_ARRAY Constant from above and create actual nonces to be passed to Javascript functions.
 	add_action( 'init', array( $toplevel_general_functions, 'wpplugintoplevel_create_nonces' ) );
@@ -230,7 +232,8 @@ global $wpdb;
 	// Adding the front-end login / dashboard shortcode.
 	add_shortcode( 'wpplugintoplevel_login_shortcode', array( $toplevel_general_functions, 'wpplugintoplevel_login_shortcode_function' ) );
 
-
+	// Function that logs in a user automatically after they've first registered.
+	add_action( 'after_setup_theme', array( $toplevel_general_functions, 'wpplugintoplevel_autologin_after_registering' ) );
 
 /* END OF FUNCTIONS FOUND IN CLASS-WPPLUGIN-GENERAL-FUNCTIONS.PHP THAT APPLY PLUGIN-WIDE */
 
@@ -238,6 +241,9 @@ global $wpdb;
 
 // Function for manually adding a new user from the dashboard. 
 add_action( 'wp_ajax_wpplugintoplevel_add_new_user_action', array( $toplevel_ajax_functions, 'wpplugintoplevel_add_new_user_action_callback' ) );
+
+// Function for manually adding a new user from the frontend. 
+add_action( 'wp_ajax_nopriv_wpplugintoplevel_add_new_user_action', array( $toplevel_ajax_functions, 'wpplugintoplevel_add_new_user_action_callback' ) );
 
 
 /* END OF FUNCTIONS FOUND IN CLASS-WPPLUGIN-AJAX-FUNCTIONS.PHP THAT APPLY PLUGIN-WIDE */

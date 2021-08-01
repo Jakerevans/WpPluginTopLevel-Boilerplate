@@ -26,6 +26,50 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 			require_once WPPLUGINTOPLEVEL_ROOT_INCLUDES_UI_ADMIN_DIR . 'class-admin-master-ui.php';
 		}
 
+		/**
+		 *  Function that logs in a user automatically after they've first registered.
+		 */
+		public function wpplugintoplevel_autologin_after_registering() {
+
+			if ( false !== stripos( $_SERVER['REQUEST_URI'], '?un=' ) ) {
+
+				$username = filter_var( $_GET['un'], FILTER_SANITIZE_STRING );
+				$user     = get_user_by( 'login', $username );
+
+				// Redirect URL.
+				if ( ! is_wp_error( $user ) ) {
+					clean_user_cache( $user->ID );
+					wp_clear_auth_cookie();
+					wp_set_current_user($user->ID);
+					wp_set_auth_cookie( $user->ID, true, false );
+					update_user_caches( $user );
+				}
+			}
+		}
+
+		/**
+		 *  Code for adding ajax
+		 */
+		public function wpplugintoplevel_jre_prem_add_ajax_library() {
+
+			$html = '<script type="text/javascript">';
+
+			// Checking $protocol in HTTP or HTTPS.
+			if ( isset( $_SERVER['HTTPS'] ) && 'off' !== $_SERVER['HTTPS'] ) {
+				// This is HTTPS.
+				$protocol = 'https';
+			} else {
+				// This is HTTP.
+				$protocol = 'http';
+			}
+			$temp_ajax_path = admin_url( 'admin-ajax.php' );
+			$good_ajax_url  = $protocol . strchr( $temp_ajax_path, ':' );
+
+			$html .= 'var ajaxurl = "' . $good_ajax_url . '"';
+			$html .= '</script>';
+			echo $html;
+		}
+
 		/** Functions that loads up the menu page entry for this Extension.
 		 *
 		 *  @param array $submenu_array - The array that contains submenu entries to add to.
@@ -126,7 +170,25 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 		 */
 		public function wpplugintoplevel_frontend_js() {
 
+			global $wpdb;
+
 			wp_register_script( 'wpplugintoplevel_frontendjs', WPPLUGINTOPLEVEL_JS_URL . 'wpplugintoplevel_frontend.min.js', array( 'jquery' ), WPPLUGINTOPLEVEL_VERSION_NUM, true );
+
+			$final_array_of_php_values = array();
+
+			// Now grab all of our Nonces to pass to the JavaScript for the Ajax functions and merge with the Translations array.
+			$final_array_of_php_values = array_merge( $final_array_of_php_values, json_decode( TOPLEVEL_FINAL_NONCES_ARRAY, true ) );
+
+			// Adding some other individual values we may need.
+			$final_array_of_php_values['WPPLUGINTOPLEVEL_ROOT_IMG_ICONS_URL']   = WPPLUGINTOPLEVEL_ROOT_IMG_ICONS_URL;
+			$final_array_of_php_values['WPPLUGINTOPLEVEL_ROOT_IMG_URL']   = WPPLUGINTOPLEVEL_ROOT_IMG_URL;
+			$final_array_of_php_values['FOR_TAB_HIGHLIGHT']    = admin_url() . 'admin.php';
+			$final_array_of_php_values['SAVED_ATTACHEMENT_ID'] = get_option( 'media_selector_attachment_id', 0 );
+			$final_array_of_php_values['DB_PREFIX'] = $wpdb->prefix;
+
+			// Now registering/localizing our JavaScript file, passing all the PHP variables we'll need in our $final_array_of_php_values array, to be accessed from 'wpbooklist_php_variables' object (like wpbooklist_php_variables.nameofkey, like any other JavaScript object).
+			wp_localize_script( 'wpplugintoplevel_frontendjs', 'wppluginToplevelPhpVariables', $final_array_of_php_values );
+
 			wp_enqueue_script( 'wpplugintoplevel_frontendjs' );
 
 		}
@@ -199,6 +261,8 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 			$sql_create_table2 = "CREATE TABLE {$wpdb->wpplugintoplevel_users}
 			(
 				ID bigint(190) auto_increment,
+				username varchar(255),
+				password varchar(255),
 				firstname varchar(255),
 				lastname varchar(255),
 				contactstreetaddress varchar(255),
