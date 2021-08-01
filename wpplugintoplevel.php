@@ -18,6 +18,26 @@
  */
 
 /*
+* FUNCTIONALITY NOTES
+* This boilerplate plugin comes with these features out-of-the-box:
+* 1. Ability to create a new generic User. Bascia info such as name and contact info. 
+* 	- The 'uniqueness' is set by the email address - it's impossible to add a user that has the same email as another user.
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+*
+
+*/
+
+/*
  * SETUP NOTES:
  *
  * Rename root plugin folder to an all-lowercase version of wpplugintoplevel
@@ -146,6 +166,7 @@ global $wpdb;
 	define( 'WPPLUGINTOPLEVEL_NONCES_ARRAY',
 		wp_json_encode(array(
 			'adminnonce1' => 'wpplugintoplevel_save_license_key_action_callback',
+			'adminnonce2' => 'wpplugintoplevel_add_new_user_action_callback',
 		))
 	);
 
@@ -214,6 +235,9 @@ global $wpdb;
 /* END OF FUNCTIONS FOUND IN CLASS-WPPLUGIN-GENERAL-FUNCTIONS.PHP THAT APPLY PLUGIN-WIDE */
 
 /* FUNCTIONS FOUND IN CLASS-WPPLUGIN-AJAX-FUNCTIONS.PHP THAT APPLY PLUGIN-WIDE */
+
+// Function for manually adding a new user from the dashboard. 
+add_action( 'wp_ajax_wpplugintoplevel_add_new_user_action', array( $toplevel_ajax_functions, 'wpplugintoplevel_add_new_user_action_callback' ) );
 
 
 /* END OF FUNCTIONS FOUND IN CLASS-WPPLUGIN-AJAX-FUNCTIONS.PHP THAT APPLY PLUGIN-WIDE */

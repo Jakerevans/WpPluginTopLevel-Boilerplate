@@ -159,7 +159,7 @@ if ( ! class_exists( 'WPPlugin_Settings1_Form', false ) ) :
 					<div class="wpplugin-form-section-fields-wrapper">
 						<div class="wpplugin-form-section-fields-indiv-wrapper">
 							<label class="wpplugin-form-section-fields-label">Add This User Now!</label>
-							<button class="wpplugin-form-section-submit-button" id="wpplugin-form-section-add-book-button">Add User</button>
+							<button class="wpplugin-form-section-submit-button" id="wpplugin-form-section-add-new-user-button">Add User</button>
 							<div class="wpplugin-spinner"></div>
 		 					<div class="wpplugin-response-div-actual-container">
 		 						<p class="wpplugin-response-div-p"></p>

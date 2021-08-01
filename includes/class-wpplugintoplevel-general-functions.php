@@ -102,6 +102,9 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 
 			$final_array_of_php_values = array();
 
+			// Now grab all of our Nonces to pass to the JavaScript for the Ajax functions and merge with the Translations array.
+			$final_array_of_php_values = array_merge( $final_array_of_php_values, json_decode( TOPLEVEL_FINAL_NONCES_ARRAY, true ) );
+
 			// Adding some other individual values we may need.
 			$final_array_of_php_values['WPPLUGINTOPLEVEL_ROOT_IMG_ICONS_URL']   = WPPLUGINTOPLEVEL_ROOT_IMG_ICONS_URL;
 			$final_array_of_php_values['WPPLUGINTOPLEVEL_ROOT_IMG_URL']   = WPPLUGINTOPLEVEL_ROOT_IMG_URL;
@@ -198,7 +201,6 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 				ID bigint(190) auto_increment,
 				firstname varchar(255),
 				lastname varchar(255),
-				company varchar(255),
 				contactstreetaddress varchar(255),
 				contactcity varchar(255),
 				contactstate varchar(255),
@@ -217,12 +219,10 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 				KEY email (email)
 			) $charset_collate; ";
 
-			// If table doesn't exist, create table and add initial data to it.
+			// If table doesn't exist, create table.
 			$test_name = $wpdb->prefix . 'wpplugintoplevel_users';
 			if ( $test_name !== $wpdb->get_var( "SHOW TABLES LIKE '$test_name'" ) ) {
 				dbDelta( $sql_create_table2 );
-				$table_name = $wpdb->prefix . 'wpplugintoplevel_users';
-				$wpdb->insert( $table_name, array( 'ID' => 1, ) );
 			}
 		}
 
