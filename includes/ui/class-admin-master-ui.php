@@ -48,7 +48,7 @@ class WPPlugin_Admin_Menu {
 
         // Controls UI for each Menu/Submenu page
         switch ( $this->page ) {
-            case 'WPPluginToplevel-Options-settings':
+            case 'WPPluginToplevel-Options-users':
                 $this->setup_settings_ui();
                 break; 
             case 'WPPluginToplevel-Options-submenu-page1':
@@ -70,9 +70,9 @@ class WPPlugin_Admin_Menu {
     // Sets up tabs for the 'Books' page
     private function setup_settings_ui() {
         $this->tabs = array(
-            'settings1'   => __("Settings 1", 'wpplugin'),
-            'settings2'  => __("Settings 2", 'wpplugin'),
-            'settings3'  => __("Settings 3", 'wpplugin'),
+            'users1'   => __("Create a User", 'wpplugin'),
+            'users2'  => __("Edit Users", 'wpplugin'),
+            'users3'  => __("Settings 3", 'wpplugin'),
         );
 
         if(has_filter('wpplugintoplevel_add_tab_settings')) {

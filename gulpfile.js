@@ -59,7 +59,7 @@ gulp.task( 'sassBackendSource', function() {
 gulp.task( 'concatAdminJs', function() {
 	return gulp.src(jsBackendSource ) // use jsSources
 		.pipe(concat( 'wpplugintoplevel_admin.min.js' ) ) // Concat to a file named 'script.js'
-		.pipe(uglify() ) // Uglify concatenated file
+		//.pipe(uglify() ) // Uglify concatenated file - commented out so that others can work on unuglified code in the futer... could have performance impact on front-end, not worried about backend.
 		.pipe(gulp.dest( 'assets/js' ) ); // The destination for the concatenated and uglified file
 });
 
@@ -68,7 +68,7 @@ gulp.task( 'concatAdminJs', function() {
 gulp.task( 'concatFrontendJs', function() {
 	return gulp.src(jsFrontendSource ) // use jsSources
 		.pipe(concat( 'wpplugintoplevel_frontend.min.js' ) ) // Concat to a file named 'script.js'
-		.pipe(uglify() ) // Uglify concatenated file
+		//.pipe(uglify() ) // Uglify concatenated file - commented out so that others can work on unuglified code in the futer... could have performance impact on front-end, not worried about backend.
 		.pipe(gulp.dest( 'assets/js' ) ); // The destination for the concatenated and uglified file
 });
 
@@ -141,7 +141,7 @@ watcherJsBackendSource.on('all', function(event, path, stats) {
 
 	gulp.src( jsBackendSource ) // use jsSources
 		.pipe(concat( 'wpplugintoplevel_admin.min.js' ) ) // Concat to a file named 'script.js'
-		.pipe(uglify() ) // Uglify concatenated file
+		//.pipe(uglify() ) // Uglify concatenated file - commented out so that others can work on unuglified code in the futer... could have performance impact on front-end, not worried about backend.
 		.pipe(gulp.dest( 'assets/js' ) )
 		.on('end', function(){ console.log('Finished!!!') });
 
@@ -152,7 +152,7 @@ watcherJsFrontendSource.on('all', function(event, path, stats) {
 
 	gulp.src(jsFrontendSource ) // use jsSources
 		.pipe(concat( 'wpplugintoplevel_frontend.min.js' ) ) // Concat to a file named 'script.js'
-		.pipe(uglify() ) // Uglify concatenated file
+		//.pipe(uglify() ) // Uglify concatenated file - commented out so that others can work on unuglified code in the futer... could have performance impact on front-end, not worried about backend.
 		.pipe(gulp.dest( 'assets/js' ) ) // The destination for the concatenated and uglified file
 		.on('end', function(){ console.log('Finished!!!') });
 

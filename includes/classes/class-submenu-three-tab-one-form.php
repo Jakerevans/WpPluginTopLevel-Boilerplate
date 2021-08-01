@@ -60,7 +60,7 @@ if ( ! class_exists( 'WPPlugin_Settings1_Form', false ) ) :
 									</div>
 									<div class="wpplugin-form-section-fields-indiv-wrapper">
 										<label class="wpplugin-form-section-fields-label">Column 1 Type</label>
-										<select class="booktrackerwpplugin-form-section-fields-input booktrackerwpplugin-form-section-fields-input-select" aria-labelledby="label-type">
+										<select class="wpplugin-form-section-fields-input wpplugin-form-section-fields-input-select" aria-labelledby="label-type">
 											<optgroup label="Numbers">
 												<option>tinyint</option>
 												<option>smallint</option>
@@ -124,7 +124,7 @@ if ( ! class_exists( 'WPPlugin_Settings1_Form', false ) ) :
 								<div class="wpplugin-form-section-create-extra-columns-wrapper">
 									<div>
 
-										<button>Add Another Column</button>
+										<button >Add Another Column</button>
 									</div>
 
 

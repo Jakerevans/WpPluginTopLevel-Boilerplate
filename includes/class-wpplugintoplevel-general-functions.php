@@ -34,7 +34,7 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 			add_menu_page( 'Bell  WPPluginToplevel', 'WPPluginToplevel', 'manage_options', 'WPPluginToplevel-Options', array( $this, 'wpplugintoplevel_jre_admin_page_function' ), WPPLUGINTOPLEVEL_ROOT_IMG_URL . 'belllogonocanvas.png', 6 );
 
 			$submenu_array = array(
-				'Settings',
+				'Users',
 				'Submenu Page1',
 				'Submenu Page2',
 				'Submenu Page3',
@@ -154,7 +154,7 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 		public function wpplugintoplevel_register_table_name() {
 			global $wpdb;
 			$wpdb->wpplugintoplevel_settings = "{$wpdb->prefix}wpplugintoplevel_settings";
-			$wpdb->wpplugintoplevel_addarow = "{$wpdb->prefix}wpplugintoplevel_addarow";
+			$wpdb->wpplugintoplevel_users = "{$wpdb->prefix}wpplugintoplevel_users";
 		}
 
 		/**
@@ -193,34 +193,35 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 				$wpdb->insert( $table_name, array( 'ID' => 1, ) );
 			}
 
-			$sql_create_table2 = "CREATE TABLE {$wpdb->wpplugintoplevel_addarow}
+			$sql_create_table2 = "CREATE TABLE {$wpdb->wpplugintoplevel_users}
 			(
 				ID bigint(190) auto_increment,
-				eventname varchar(255),
-				toplevelubtitle varchar(255),
-				eventtype varchar(255),
-				parentevent varchar(255),
-				topleveltartdate varchar(255),
-				eventenddate varchar(255),
-				eventbegintime varchar(255),
-				eventendtime varchar(255),
-				eventfee varchar(255),
-				eventaddress varchar(255),
-				eventcontactnumber varchar(255),
-				eventemail varchar(255),
-				eventgooglemap varchar(255),
-				eventlocation MEDIUMTEXT,
-				eventparkingdetails MEDIUMTEXT,
-				eventpolicies MEDIUMTEXT,
+				firstname varchar(255),
+				lastname varchar(255),
+				company varchar(255),
+				contactstreetaddress varchar(255),
+				contactcity varchar(255),
+				contactstate varchar(255),
+				contactzip varchar(255),
+				billingstreetaddress varchar(255),
+				billingcity varchar(255),
+				billingstate varchar(255),
+				billingzip varchar(255),
+				phonecell varchar(255),
+				phoneoffice varchar(255),
+				email varchar(255),
+				userimage1 varchar(255),
+				userimage2 varchar(255),
+				comments MEDIUMTEXT,
 				PRIMARY KEY  (ID),
-				KEY eventname (eventname)
+				KEY email (email)
 			) $charset_collate; ";
 
 			// If table doesn't exist, create table and add initial data to it.
-			$test_name = $wpdb->prefix . 'wpplugintoplevel_addarow';
+			$test_name = $wpdb->prefix . 'wpplugintoplevel_users';
 			if ( $test_name !== $wpdb->get_var( "SHOW TABLES LIKE '$test_name'" ) ) {
 				dbDelta( $sql_create_table2 );
-				$table_name = $wpdb->prefix . 'wpplugintoplevel_addarow';
+				$table_name = $wpdb->prefix . 'wpplugintoplevel_users';
 				$wpdb->insert( $table_name, array( 'ID' => 1, ) );
 			}
 		}
