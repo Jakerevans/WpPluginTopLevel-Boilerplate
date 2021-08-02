@@ -185,6 +185,17 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 			$final_array_of_php_values['FOR_TAB_HIGHLIGHT']    = admin_url() . 'admin.php';
 			$final_array_of_php_values['SAVED_ATTACHEMENT_ID'] = get_option( 'media_selector_attachment_id', 0 );
 			$final_array_of_php_values['DB_PREFIX'] = $wpdb->prefix;
+			$final_array_of_php_values['IS_USER_LOGGED_IN']   = is_user_logged_in();
+			$final_array_of_php_values['CURRENT_POST_ID']   = get_the_ID();
+
+			// Get some info to provide to the front-end for the saving of posts.
+			$current_user = wp_get_current_user();
+			$table_name = $wpdb->prefix . 'wpplugintoplevel_user_saved_posts';
+			$user_info = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table_name WHERE email = %s", $current_user->user_email ) );
+			error_log($current_user->user_email);
+			$final_array_of_php_values['USER_SAVED_POST_IDS']   = $user_info->postids;
+			$final_array_of_php_values['FRONTEND_USER_DASHBOARD_SHORTCODE_URL']   = WPPLUGINTOPLEVEL_FRONTEND_USER_DASHBOARD_SHORTCODE_URL;
+
 
 			// Now registering/localizing our JavaScript file, passing all the PHP variables we'll need in our $final_array_of_php_values array, to be accessed from 'wpbooklist_php_variables' object (like wpbooklist_php_variables.nameofkey, like any other JavaScript object).
 			wp_localize_script( 'wpplugintoplevel_frontendjs', 'wppluginToplevelPhpVariables', $final_array_of_php_values );
@@ -220,6 +231,7 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 			global $wpdb;
 			$wpdb->wpplugintoplevel_settings = "{$wpdb->prefix}wpplugintoplevel_settings";
 			$wpdb->wpplugintoplevel_users = "{$wpdb->prefix}wpplugintoplevel_users";
+			$wpdb->wpplugintoplevel_user_saved_posts = "{$wpdb->prefix}wpplugintoplevel_user_saved_posts";
 		}
 
 		/**
@@ -287,6 +299,23 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 			$test_name = $wpdb->prefix . 'wpplugintoplevel_users';
 			if ( $test_name !== $wpdb->get_var( "SHOW TABLES LIKE '$test_name'" ) ) {
 				dbDelta( $sql_create_table2 );
+			}
+
+
+			$sql_create_table3 = "CREATE TABLE {$wpdb->wpplugintoplevel_user_saved_posts}
+			(
+				ID bigint(190) auto_increment,
+				email varchar(255),
+				wpuserid varchar(255),
+				postids MEDIUMTEXT,
+				PRIMARY KEY  (ID),
+				KEY wpuserid (wpuserid)
+			) $charset_collate; ";
+
+			// If table doesn't exist, create table.
+			$test_name = $wpdb->prefix . 'wpplugintoplevel_user_saved_posts';
+			if ( $test_name !== $wpdb->get_var( "SHOW TABLES LIKE '$test_name'" ) ) {
+				dbDelta( $sql_create_table3 );
 			}
 		}
 

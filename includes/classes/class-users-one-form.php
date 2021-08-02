@@ -28,6 +28,8 @@ if ( ! class_exists( 'WPPlugin_Settings1_Form', false ) ) :
 			// For grabbing an image from media library.
 			wp_enqueue_media();
 
+			wp_enqueue_script( 'password-strength-meter' );
+
 		}
 
 		/**
@@ -38,6 +40,25 @@ if ( ! class_exists( 'WPPlugin_Settings1_Form', false ) ) :
 
 			$contact_form_html = '
 				<div class="wpplugin-form-section-wrapper">
+					<div class="wpplugin-form-section-fields-wrapper">
+						<div class="wpplugin-form-section-fields-indiv-wrapper">
+							<label class="wpplugin-form-section-fields-label">Username</label>
+							<input class="wpplugin-form-section-fields-input wpplugin-form-section-fields-input-text" id="wpplugin-user-username" type="text" placeholder="User\'s Username" />
+						</div>
+						<div class="wpplugin-form-section-fields-indiv-wrapper">
+							<label class="wpplugin-form-section-fields-label">Password</label>
+							<input class="wpplugin-form-section-fields-input wpplugin-form-section-fields-input-text" id="wpplugin-user-password" name="password" type="text" placeholder="User\'s Password" />
+						</div>
+						<div class="wpplugin-form-section-fields-indiv-wrapper">
+							<label class="wpplugin-form-section-fields-label">Verify Password</label>
+							<input class="wpplugin-form-section-fields-input wpplugin-form-section-fields-input-text" id="wpplugin-user-passwordverify" name="password_retyped" type="text" placeholder="Verify User\'s Password" />
+						</div>
+					</div>
+					<div class="wpplugin-form-section-fields-wrapper">
+						<div class="wpplugin-form-section-fields-indiv-wrapper">
+							<p style="opacity:0" id="password-strength">Password Strength is...</p>
+						</div>
+					</div>
 					<div class="wpplugin-form-section-fields-wrapper">
 						<div class="wpplugin-form-section-fields-indiv-wrapper">
 							<label class="wpplugin-form-section-fields-label">First Name</label>

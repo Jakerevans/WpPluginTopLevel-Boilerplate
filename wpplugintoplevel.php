@@ -20,21 +20,24 @@
 /*
 * FUNCTIONALITY NOTES
 * This boilerplate plugin comes with these features out-of-the-box:
-* 1. Ability to create a new generic User. Bascia info such as name and contact info. 
+* 1. Ability to create a new generic User. BasIC info such as name and contact info. 
 * 	- The 'uniqueness' is set by the email address - it's impossible to add a user that has the same email as another user.
 * 	- There is an ability to add a new User from the Admin Dashboard
 * 	- 
 *
 *
+* 2. Front-end Dashboard functionality for Users
+*   - Use this Shortcode to place a Dashboard for front-end users: [wpplugintoplevel_login_shortcode]
+*	- On this Dashboard, Users can Login or Register, and see and edit their account Info
+*	- Users can also see their saved posts
 *
-*
-*
-*
-*
-*
-*
-*
-
+* 3. Ability to save posts
+*	- This plugin gives Users the ability to save a post they like to their account
+*	- A "Save This Post" feature is appended to the end of every Blog Post title
+*	- If the user is logged in and wants to save the post, they can click the text to do so
+*	- If they aren't logged in, they'll be taken to the Dashboard page to login or register
+*	- If they are logged in and already liked the post, the button will say so
+*	- Be sure to change this Constant once the URL for the Dashboard is decided on: WPPLUGINTOPLEVEL_FRONTEND_USER_DASHBOARD_SHORTCODE_URL
 */
 
 /*
@@ -61,6 +64,7 @@
  * $toplevel
  * TOPLEVEL
  * wpplugintoplevel-extension
+ * WPPLUGINTOPLEVEL_FRONTEND_USER_DASHBOARD_SHORTCODE_URL - Change this value to the final URL the User Dashboard will live on
  * SITETHING - rename to whatever we're 'saving' or recording to the database. Is this for cars, vendors, contacts, etc. really to be used for the editing of whatever this database is concenred with in the 'class-settings-two-form.php' file. Replace it with something lowercase.
  * repw with something also random - db column that holds license.
  *
@@ -162,6 +166,9 @@ global $wpdb;
 	$upload_url = $uploads['baseurl'];
 	define( 'WPPLUGINTOPLEVEL_UPLOADS_BASE_URL', $upload_url . '/' );
 
+	// This is the Dashboard URL - the URL that the Dashboard shortcode is placed on.
+	define( 'WPPLUGINTOPLEVEL_FRONTEND_USER_DASHBOARD_SHORTCODE_URL', '/front-end-account-creation-login/' );
+
 	// Nonces array.
 	define( 'WPPLUGINTOPLEVEL_NONCES_ARRAY',
 		wp_json_encode(array(
@@ -250,12 +257,12 @@ add_action( 'wp_ajax_nopriv_wpplugintoplevel_add_new_user_action', array( $tople
 
 
 
-
-
-
-
-
-
+function ajax_check_user_logged_in() {
+    echo is_user_logged_in()?'yes':'no';
+    die();
+}
+add_action('wp_ajax_is_user_logged_in', 'ajax_check_user_logged_in');
+add_action('wp_ajax_nopriv_is_user_logged_in', 'ajax_check_user_logged_in');
 
 
 

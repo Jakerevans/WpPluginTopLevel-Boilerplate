@@ -25,8 +25,9 @@ BEGIN STYLING FOR THE LOGIN OR REGISTER FORM FOR USERS ON THE FRONT-END
 
 .wpplugin-form-section-fields-indiv-wrapper{
     flex: 1;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 15px;
+    text-align: left;
+    width: 200px;
 }
 
 .wpplugin-form-section-fields-indiv-wrapper input, .wpplugin-form-section-fields-indiv-wrapper select {
@@ -59,3 +60,76 @@ BEGIN STYLING FOR THE LOGIN OR REGISTER FORM FOR USERS ON THE FRONT-END
 /*    
 END STYLING FOR THE LOGIN OR REGISTER FORM FOR USERS ON THE FRONT-END
 */
+
+/*    
+BEGIN STYLING FOR THE DASHBOARD FOR LOGGED-IN USERS ON THE FRONT-END
+*/
+#wpplugin-form-section-wrapper-forms-and-tabs-container{
+	display: flex;
+	position: relative;
+    right: 60px;
+}
+
+#wpplugin-form-section-wrapper-lefthand-tabs-container{
+	margin-right: 30px;
+}
+
+.wpplugin-form-section-wrapper-lefthand-tabs-actual{
+	padding: 20px;
+    cursor: pointer;
+    border: solid 1px black;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.wpplugin-form-section-fields-indiv-wrapper-actualinput{
+	display: none;
+}
+
+.wpplugin-form-section-fields-indiv-wrapper-justtext label{
+	margin-bottom: 0px;
+}
+
+.wpplugin-form-section-fields-label-actualvalue{
+	font-size:0.8em;
+}
+
+.wpplugin-form-section-wrapper-saved-posts{
+	display: none;
+}
+
+.wpplugin-form-section-wrapper-lefthand-tabs-actual-active{
+	color: #fff;
+    background-color: #000;
+}
+
+/*    
+END STYLING FOR THE DASHBOARD FOR LOGGED-IN USERS ON THE FRONT-END
+*/
+
+
+.wpplugin-save-post-button-div{
+	cursor: pointer;
+}
+
+.wpplugin-save-post-button-div:hover{
+	opacity: 0.7;
+}
+
+.wpplugin-save-post-button-div p, .wpplugin-save-post-button-div img{
+	pointer-events: none;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.wpplugin-save-post-button-div p{
+	font-size: 15px;
+}
+
+.wpplugin-save-post-button-div img{
+	width:30px;
+}
+
+.wpplugin-save-post-button-top-container, .entry-title{
+	display: inline-block;
+}
