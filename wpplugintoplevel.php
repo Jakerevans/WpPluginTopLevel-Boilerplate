@@ -20,11 +20,9 @@
 /*
 * FUNCTIONALITY NOTES
 * This boilerplate plugin comes with these features out-of-the-box:
-* 1. Ability to create a new generic User. BasIC info such as name and contact info. 
+* 1. Ability to create a new generic User. Basic info such as name and contact info. 
 * 	- The 'uniqueness' is set by the email address - it's impossible to add a user that has the same email as another user.
 * 	- There is an ability to add a new User from the Admin Dashboard
-* 	- 
-*
 *
 * 2. Front-end Dashboard functionality for Users
 *   - Use this Shortcode to place a Dashboard for front-end users: [wpplugintoplevel_login_shortcode]
@@ -174,6 +172,8 @@ global $wpdb;
 		wp_json_encode(array(
 			'adminnonce1' => 'wpplugintoplevel_save_license_key_action_callback',
 			'adminnonce2' => 'wpplugintoplevel_add_new_user_action_callback',
+			'adminnonce3' => 'wpplugintoplevel_save_user_post_action_callback',
+			'adminnonce4' => 'wpplugintoplevel_edit_existing_user_action_callback',
 		))
 	);
 
@@ -251,6 +251,15 @@ add_action( 'wp_ajax_wpplugintoplevel_add_new_user_action', array( $toplevel_aja
 
 // Function for manually adding a new user from the frontend. 
 add_action( 'wp_ajax_nopriv_wpplugintoplevel_add_new_user_action', array( $toplevel_ajax_functions, 'wpplugintoplevel_add_new_user_action_callback' ) );
+
+// Function for editing a user from the dashboard. 
+add_action( 'wp_ajax_wpplugintoplevel_edit_existing_user_action', array( $toplevel_ajax_functions, 'wpplugintoplevel_edit_existing_user_action_callback' ) );
+
+// Function for saving a post from the frontend. 
+add_action( 'wp_ajax_wpplugintoplevel_save_user_post_action', array( $toplevel_ajax_functions, 'wpplugintoplevel_save_user_post_action_callback' ) );
+
+// Function for saving a post from the frontend. 
+add_action( 'wp_ajax_nopriv_wpplugintoplevel_save_user_post_action', array( $toplevel_ajax_functions, 'wpplugintoplevel_save_user_post_action_callback' ) );
 
 
 /* END OF FUNCTIONS FOUND IN CLASS-WPPLUGIN-AJAX-FUNCTIONS.PHP THAT APPLY PLUGIN-WIDE */

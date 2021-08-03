@@ -128,8 +128,19 @@ END STYLING FOR THE DASHBOARD FOR LOGGED-IN USERS ON THE FRONT-END
 
 .wpplugin-save-post-button-div img{
 	width:30px;
+	margin-left: 5px;
 }
 
 .wpplugin-save-post-button-top-container, .entry-title{
 	display: inline-block;
+}
+
+.wpplugin-spinner{
+    @extend %wpplugintoplevel-spinner;
+}
+
+.wpplugin-savedposts-indiv-container{
+	display: inline-block;
+    max-width: 200px;
+    vertical-align: top;
 }

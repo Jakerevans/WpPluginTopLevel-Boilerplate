@@ -50,7 +50,7 @@ if ( ! class_exists( 'WPPlugin_Settings_Settings2_Tab', false ) ) :
 		 * Outputs actual tab contents
 		 */
 		private function output_tab_content() {
-			echo $this->form->output_settings2_form();
+			echo $this->form->final_html;
 		}
 
 		/**

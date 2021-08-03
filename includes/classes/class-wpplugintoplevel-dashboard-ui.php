@@ -592,16 +592,40 @@ if ( ! class_exists( 'WPPluginToplevel_Dashboard_UI', false ) ) :
 														</div>
 													</div>';
 
+			// Get all of the posts the user has saved.
+			$table_name = $wpdb->prefix . 'wpplugintoplevel_user_saved_posts';
+			$userid = get_current_user_id();
+			$user_info = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM $table_name WHERE wpuserid = %s", $userid ) );
 
+			$postids = explode( ',', $user_info->postids );
+			$post_html = '';
+			foreach( $postids as $id ){
+				$title = get_post_field( 'post_title', $id );
+				$featured_image = get_the_post_thumbnail( $id, 'large' );
+  				$excerpt = get_post_field( 'post_excerpt', $id );
+				$post_html = $post_html . '
+				<div class="wpplugin-savedposts-indiv-container" data-postid="' . $id . '">
+					<a href="' . get_permalink( $id ) . '">
+					<div class="wpplugin-savedposts-indiv-container-title">
+						<p>' . $title . '</p>
+					</div>
+					<div class="wpplugin-savedposts-indiv-container-image">
+						' . $featured_image . '
+					</div>
+					<div class="wpplugin-savedposts-indiv-container-excerpt">
+						' . $excerpt . '
+					</div>
+					<div class="wpplugin-savedposts-indiv-container-readmore">
+
+					</div>
+					</a>
+				</div>';
+
+			}
 
 			$logged_in_user_dashboard_savedpost_html = '
-													<div class="wpplugin-form-section-wrapper wpplugin-form-section-wrapper-savedposts">
-														<div class="wpplugin-form-section-fields-wrapper">
-															<div class="wpplugin-form-section-fields-indiv-wrapper wpplugin-form-section-fields-indiv-wrapper-justtext">
-																<label class="wpplugin-form-section-fields-label">Saved Posts</label>
-																<p class="wpplugin-form-section-fields-label-actualvalue">' . $user_info->username . '</p>
-															</div>
-														</div>
+													<div style="display: none;" class="wpplugin-form-section-wrapper wpplugin-form-section-wrapper-savedposts">
+														' . $post_html . '
 													</div>
 												</div>';
 

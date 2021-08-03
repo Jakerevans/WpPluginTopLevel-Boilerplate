@@ -186,6 +186,7 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 			$final_array_of_php_values['SAVED_ATTACHEMENT_ID'] = get_option( 'media_selector_attachment_id', 0 );
 			$final_array_of_php_values['DB_PREFIX'] = $wpdb->prefix;
 			$final_array_of_php_values['IS_USER_LOGGED_IN']   = is_user_logged_in();
+			$final_array_of_php_values['USER_WPID']   = get_current_user_id();
 			$final_array_of_php_values['CURRENT_POST_ID']   = get_the_ID();
 
 			// Get some info to provide to the front-end for the saving of posts.
@@ -273,6 +274,7 @@ if ( ! class_exists( 'WPPluginToplevel_General_Functions', false ) ) :
 			$sql_create_table2 = "CREATE TABLE {$wpdb->wpplugintoplevel_users}
 			(
 				ID bigint(190) auto_increment,
+				wpuserid varchar(255),
 				username varchar(255),
 				password varchar(255),
 				firstname varchar(255),

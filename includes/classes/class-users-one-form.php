@@ -193,7 +193,7 @@ if ( ! class_exists( 'WPPlugin_Settings1_Form', false ) ) :
 			$string1 = '
 				<div id="wpplugin-display-options-container">
 					<p class="wpplugin-tab-intro-para">Here you\'ll create brand-new Users from scratch!</p>
-					<div class="wpplugin-form-wrapper">
+					<div class="wpplugin-form-wrapper wpplugin-form-wrapper-create-users">
 						' . $contact_form_html . '
 
 					
