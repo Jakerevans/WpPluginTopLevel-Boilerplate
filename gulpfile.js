@@ -1,6 +1,7 @@
 /**
 Mostly derived from https://bitsofco.de/a-simple-gulp-workflow
 npm install gulp
+npm install --save-dev node-sass
 npm install --save-dev gulp-sass
 npm install --save-dev gulp-concat
 npm install --save-dev gulp-uglify
@@ -13,13 +14,14 @@ npm install --save-dev del
 
 // First require gulp.
 var gulp   = require( 'gulp' ),
-	sass   = require( 'gulp-sass' ),
+	sass   = require('gulp-sass')(require('sass')),
 	concat = require( 'gulp-concat' ),
 	uglify = require( 'gulp-uglify' ),
 	gutil  = require( 'gulp-util' ),
 	rename = require( 'gulp-rename' ),
 	zip    = require( 'gulp-zip' ),
 	del    = require( 'del' );
+
 
 var sassFrontendSource        = [ 'dev/scss/wpplugintoplevel-main-frontend.scss' ];
 var sassBackendSource         = [ 'dev/scss/wpplugintoplevel-main-admin.scss' ];
