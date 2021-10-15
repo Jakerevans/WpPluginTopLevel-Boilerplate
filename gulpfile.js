@@ -10,6 +10,8 @@ npm install --save-dev gulp-rename
 npm install --save-dev gulp-babel
 npm install --save-dev gulp-zip
 npm install --save-dev del
+npm cache clear --force
+npm install sass
  */
 
 // First require gulp.

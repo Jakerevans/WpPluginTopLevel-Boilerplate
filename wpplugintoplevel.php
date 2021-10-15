@@ -77,7 +77,13 @@
  *
  */
 
-
+/*
+* HOW TO SEARCH FOR TEXT BETWEEN TWO CHARACTERS!
+* =([^;]*);
+* the above will let you search for and select all characters between an "=" sign and a ";"
+*
+*
+*/
 
 
 // Exit if accessed directly.
